@@ -1,0 +1,82 @@
+# This file defines all module routes (Higher priority routes first)
+#
+# import these routes in the main app as :
+# *     /                       module:11PathsPlayModule
+#
+# ~~~~
+
+# PublicContentBase
+GET     /register                                   PublicContentBase.register
+GET     /register/{token}/{email}                   PublicContentBase.register
+POST    /register                                   PublicContentBase.processRegister
+GET     /requestPasswordReset                       PublicContentBase.requestPasswordReset
+POST    /processRequestPasswordReset                PublicContentBase.processRequestPasswordReset
+GET     /activate                                   PublicContentBase.activate
+GET     /activate/{token}                           PublicContentBase.activate
+POST    /activate                                   PublicContentBase.activate
+GET     /reset	    							    PublicContentBase.passwordReset
+GET     /reset/{token}							    PublicContentBase.passwordReset
+POST	/processPasswordReset					    PublicContentBase.processPasswordReset
+POST	/processPasswordResetAuth					PublicContentBase.processPasswordResetUserAuth
+GET     /contact                                    PublicContentBase.contact
+POST    /contactProcess                             PublicContentBase.contactProcess
+
+# Lang
+POST    /setLanguage                                WebController.setLanguage
+
+# APIClients
+GET     /apiclients                                 APIClients.index
+POST    /apiclients/create                          APIClients.create
+POST    /apiclients/remove                          APIClients.remove
+POST    /apiclients/edit/name                       APIClients.editApiClientName
+POST    /apiclients/renew/secret                    APIClients.renewSecret
+
+# Users
+GET     /users/?                                    Users.index(page:'1')
+GET     /users/0                                    Users.index(page:'1')
+GET     /users/{<-?[0-9]+>page}                     Users.index
+POST    /users/role                                 Users.setRole
+POST    /users/delete                               Users.deleteUser
+POST    /users/toggleActivationStatus               Users.toggleActivationStatus
+
+# Profile
+GET     /profile                                    Profile.index
+GET     /profile/{email}                            Profile.showUserProfile
+POST    /profile/changeLatch                        Profile.changeLatch
+POST    /profile/deleteAccount                      Profile.deleteAccount
+
+# Admin
+GET     /admin/roles                                Admin.roles
+POST    /admin/roles                                Admin.editRole
+POST    /admin/roles/remove                         Admin.deleteRole
+GET     /admin/invitations                          Admin.invitations
+POST    /admin/invitations/invite                   Admin.inviteUser
+POST    /admin/invitations/renew                    Admin.renewInvitationToken
+POST    /admin/invitations/delete                   Admin.deleteInvitationToken
+
+# ChangeLog
+GET     /admin/changelog                            Changelog.adminChangelog
+POST    /admin/changelog                            Changelog.upsert
+POST    /admin/changelog/delete                     Changelog.remove
+POST    /admin/changelog/reset                      Changelog.reset
+GET     /changelog                                  Changelog.userChangelog
+POST    /changelog/read                             Changelog.changelogRead
+
+# Latch
+GET     /latch                                      Latch.checkLatch
+POST    /latch/pair                                 Latch.pairAccount
+POST    /latch/unpair                               Latch.unpairAccount
+POST    /latch/otp                                  Security.checkOtp
+
+# MobileConnect
+POST    /mobileConnectAuth                          Security.authenticateWithMobileConnect
+GET     /mobileConnect                              MobileConnect.checkMobileConnect
+POST    /mobileConnect/pair                         MobileConnect.pairAccount
+POST    /mobileConnect/unpair                       MobileConnect.unpairAccount
+GET     /mobileConnectCb                            Security.authorizeCallback
+POST    /mobileConnect/accounts                     Security.checkAccountChoices
+
+# Secure
+GET         /login          Secure.login
+POST        /login          Secure.authenticate
+POST        /logout         Security.logout

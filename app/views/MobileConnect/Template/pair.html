@@ -1,0 +1,25 @@
+#{stylesheet 'basic.css' /}
+<h2 class="page-title">&{'mobileConnect.pair.info'}</h2>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>&{'mobileConnect.pair.info.description.one'}</p>
+        <p>&{'mobileConnect.pair.info.description.two'} <a href="https://developer.mobileconnect.io/about-mobile-connect" target="_blank">&{'mobileConnect.pair.info.description.link'}</a>.</p>
+    </div>
+</div>
+
+<h2 class="page-title">&{'mobileConnect.pair.title'}</h2>
+<p>&{'mobileConnect.pair.info.description.three'}</p>
+#{if (flash.get("userUnpaired"))}
+    <div class="form-group has-successful">
+        <label class="control-label">&{'mobileConnect.unpair.successful'}</label>
+    </div>
+#{/if}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        #{form @MobileConnect.pairAccount(), class:'form-inline'}
+            <button type="submit" class="submit pull-left" name="Send" id="Send">
+                <i class="fa fa-lock"></i>  &{'mobileConnect.pair.pairAccount'}</i>
+            </button>
+        #{/form}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+#{extends 'errors/layoutError.html' /}
+#{if play.mode.name() == 'DEV'}
+    #{404 result /}
+#{/if}
+#{else}
+    <div class="external-error">
+        <h1>404</h1>
+        <span>File or directory not found</span>
+        <p>The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <img class="text-center" src="@{'public/images/logo.png'}" alt="ElevenPaths"/>
+    </div>
+#{/else}

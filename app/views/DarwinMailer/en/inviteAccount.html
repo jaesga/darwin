@@ -1,0 +1,12 @@
+#{extends 'DarwinMailer/mailLayout.html' /}
+#{set 'subject'}Register account#{/set}
+
+<h3>Hello ${email},</h3>
+<p>You are receiving this email because you have been invited to use ${appName}.</p>
+<p>To proceed with your sign up, please click the link below. This link is valid for 24h.</p>
+<a href="${baseUrl}/register/${token}/${email}" target="_blank" style="text-align:center;">Click here to activate your account</a></p>
+<p>If you have problems following that link, just go to <a href="${baseUrl}/register/${token}/${email}">${baseUrl}/register</a> and type in your activation code:</p>
+<p>${token}</p>
+<p>Regards.<br/>The ${appName} team.</p>
+
+

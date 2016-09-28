@@ -1,0 +1,16 @@
+self: play -> darwin 1.0.6
+
+require:
+    - play
+    - org.mongodb -> mongo-java-driver 2.12.5
+    - com.elevenpaths.latch -> latch 1.1.1
+    - com.elevenpaths.api -> mobile-connect-sdk-java 1.0
+    - org.apache.commons -> commons-collections4 4.0
+
+repositories:
+    - latch:
+        type: iBiblio
+        root: "https://maven.elevenpaths.com/nexus/content/repositories/releases/"
+        contains:
+             - com.elevenpaths.latch -> *
+             - com.elevenpaths.api -> *

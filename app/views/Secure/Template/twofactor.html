@@ -1,0 +1,30 @@
+#{stylesheet 'basic.css' /}
+<h2>&{'latch.otp.title'}</h2>
+
+#{form @Security.checkOtp()}
+    #{ifError 'otpAttemptsExceeded'}
+        <div class="form-group has-error m-b-0">
+            <label class="control-label"> #{error 'otpAttemptsExceeded' /}</label>
+        </div>
+    #{/ifError}
+    #{ifError 'otpWrong'}
+        <div class="form-group has-error m-b-0">
+            <label class="control-label"> #{error 'otpWrong' /}</label>
+        </div>
+    #{/ifError}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control" type="text" placeholder="&{'latch.otp.placeholder'}" id="token" name="token">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-bezel btn-primary pull-right">
+                    &{'Public.login.signIn'} <i class="material-icons">forward</i>
+                </button>
+            </div>
+        </div>
+    </div>
+#{/form}

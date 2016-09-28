@@ -1,0 +1,14 @@
+#{extends 'errors/layoutError.html' /}
+#{if play.mode.name() == 'DEV'}
+    #{500 exception /}
+#{/if}
+#{else}
+    <div class="external-error">
+        <h1>500</h1>
+        <span>Oops, an error occured</span>
+        #{if exception instanceof play.exceptions.PlayException}
+            <p>This exception has been logged with id <strong>${exception.id}</strong>.</p>
+        #{/if}
+        <img class="text-center" src="@{'public/images/logo.png'}" alt="ElevenPaths"/>
+    </div>
+#{/else}

@@ -1,0 +1,12 @@
+#{if models.Config.isMobileConnectActive() }
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center m-t-10">
+        #{form @Security.authenticateWithMobileConnect()}
+        <button type="submit" class="btn btn-mobile-connect pull-left">
+            <div class="mc-logo"><img src="@{'/public/images/logo-mc-login.png'}" alt="Logo MC"/></div>
+            <div class="mc-text">&{'Public.login.mobileConnect'}</div>
+        </button>
+        #{/form}
+    </div>
+</div>
+#{/if}

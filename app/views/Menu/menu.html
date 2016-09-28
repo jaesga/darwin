@@ -1,0 +1,43 @@
+<ul>
+    #{secure.check "ADMIN"}
+        #{if models.Config.getUserActivationType().equals(models.user.ActivationType.INVITATION)}
+            <li class="#{if request.action.equals('Admin.invitations')} active #{/if}">
+                <a href="@{Admin.invitations()}"><i class="material-icons">person_add</i> <span>&{'Nav.admin.invitations'}</span></a>
+            </li>
+        #{/if}
+        <li class="#{if request.action.equals('Admin.roles')} active #{/if}">
+            <a href="@{Admin.roles()}"><i class="material-icons">portrait</i> <span>&{'Nav.admin.roles'}</span></a>
+        </li>
+        <li class="#{if request.action.equals('Changelog.adminChangelog')} active #{/if}"><a href="@{Changelog.adminChangelog()}"><i class="material-icons">list</i> <span>&{'Nav.admin.changelog'} (Admin)</span></a></li>
+    #{/secure.check}
+    #{secure.check "USER_READ"}
+        <li class="#{if request.action.equals('Users.index')} active #{/if}">
+            <a href="@{Users.index(null, 0)}"><i class="material-icons">people</i> <span>&{'Nav.users'}</span></a>
+        </li>
+    #{/secure.check}
+
+    #{secure.check "API_CLIENTS"}
+        <li class="#{if request.action.equals('APIClients.index')} active #{/if}">
+            <a href="@{APIClients.index()}"><i class="material-icons">code</i> <span>&{'Nav.apiClients'}</span></a>
+        </li>
+    #{/secure.check}
+
+    #{if models.Config.isLatchActive() }
+        <li class="#{if request.url.contains('latch')} active #{/if}"><a href="@{Latch.checkLatch()}"><i class="icn-latch"></i><span>Latch</span></a></li>
+    #{/if}
+
+    #{if models.Config.isMobileConnectActive() }
+        <li class="#{if request.url.contains('mobileConnect')} active #{/if}"><a href="@{MobileConnect.checkMobileConnect()}"><i class="icn-mc"></i><span>Mobile Connect</span></a></li>
+    #{/if}
+    #{if models.Config.isChangelogActivated()}
+        <li class="#{if request.action.equals('Changelog.userChangelog')} active #{/if}"><a href="@{Changelog.userChangelog()}"><i class="material-icons">list</i> <span>&{'Nav.admin.changelog'}</span></a></li>
+    #{/if}
+    <li class="#{if request.action.equals('Profile.index') || request.action.equals('Profile.showUserProfile')} active #{/if}"><a href="@{Profile.index()}"><i class="material-icons">person_pin</i> <span>&{'Profile'}</span></a></li>
+    <li>
+        #{form @Security.logout(), class:'form-logout'}
+            <button type="submit" class="" name="Logout" id="Logout">
+                <i class="icn-logout"></i> <span>&{'Nav.logout'}</span>
+            </button>
+        #{/form}
+    </li>
+</ul>

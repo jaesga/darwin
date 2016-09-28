@@ -1,0 +1,60 @@
+#{set 'moreScripts'}
+<script>
+    $(document).ready(function() {
+        if (Cookies.get('darwin-menu-state') === 'close') {
+            toggleMenu(false);
+        }
+        $('.menu-arrow').click(function(event) {
+            toggleMenu(true);
+        });
+    });
+
+    function toggleMenu(animated) {
+        if (!animated) {
+            $('.control-panel').addClass('transition-off');
+        } else {
+            $('.control-panel').removeClass('transition-off');
+        }
+        var state;
+        var arrowIcon;
+        if ($('body').hasClass('menu-closed')) {
+            $('body').removeClass('menu-closed');
+            arrowIcon = 'keyboard_arrow_left';
+            state = 'open';
+        } else {
+            $('body').addClass('menu-closed');
+            arrowIcon = 'keyboard_arrow_right';
+            state = 'close';
+        }
+        $('.logo-area > i').text(arrowIcon);
+        Cookies.set('darwin-menu-state', state);
+    }
+</script>
+    #{get 'moreScripts'/}
+#{/set}
+
+<header>
+    <div class="logo-area">
+        <img class="big-logo" src="@{'/public/images/logo.png'}" alt="Logo"/>
+        <img class="small-logo" src="@{'/public/images/logo-small.png'}" alt="Logo"/>
+        <i class="material-icons menu-arrow">keyboard_arrow_left</i>
+    </div>
+    <div class="nav-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>#{get 'title' /}</h1>
+                    <div class="right-nav">
+                        <div class="nav-lang">
+                            #{include 'Lang/languages.html' /}
+                        </div>
+                        <p class="user-name">${session.username}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="shadow">
+    <img src="@{'/public/images/background/shadow.png'}" alt="shadow"/>
+</div>

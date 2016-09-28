@@ -1,0 +1,12 @@
+#{extends 'errors/layoutError.html' /}
+#{if play.mode.name() == 'DEV'}
+    #{404 result /}
+#{/if}
+#{else}
+    <div class="external-error">
+        <h1>403</h1>
+        <span>Access denied</span>
+        <p></p>
+        <img class="text-center" src="@{'public/images/logo.png'}" alt="ElevenPaths"/>
+    </div>
+#{/else}

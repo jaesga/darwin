@@ -1,0 +1,110 @@
+#{stylesheet 'basic.css' /}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 class="page-title pull-left">&{'Invitations.index.title'}</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        #{ifErrors}
+            <div class="error">
+                ${errors[0]}
+            </div>
+        #{/ifErrors}
+        #{form @Admin.inviteUser()}
+            <div class="input-icon pull-left m-r-5">
+                <i class="fa fa-envelope"></i>
+                <input class="form-control" type="text" value="${flash.email}" placeholder="Email" name="email">
+            </div>
+            <div class="form-group m-b-0">
+            <select class="selectpicker pull-left lang-select" name="lang">
+                <option value="none" disabled>&{'Languages.title'}</option>
+                #{list items:controllers.WebController.getSupportedLanguages(), as:'supportedLang'}
+                    ${supportedLang}
+                    <option value="${supportedLang}">&{'Languages.' + supportedLang}</option>
+                #{/list}
+            </select>
+            <div class="form-actions pull-left">
+                <button type="submit" class="submit m-t-0">
+                    &{'Invitations.index.title'}
+                </button>
+            </div>
+        #{/form}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 class="page-title pull-left">&{'Invitations.index.pending'}</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table darwin-table table-invitations">
+            <thead>
+                <tr>
+                    <th>&{'Invitations.index.table.email'}</th>
+                    <th>&{'Invitations.index.table.state'}</th>
+                    <th>&{'Invitations.index.table.actions'}</th>
+                </tr>
+            </thead>
+            <tbody>
+                #{list items:tokens, as:'token'}
+                    <tr>
+                        <td>${token.getEmail()}</td>
+                        <td>
+                            #{if token.isValid()}
+                                <span class="label label-primary">&{'Invitations.index.table.state.valid'}</span>
+                            #{/if}
+                            #{else}
+                                <span class="label label-danger">&{'Invitations.index.table.state.invalid'}</span>
+                            #{/else}
+                        </td>
+                        <td>
+                            #{form @Admin.renewInvitationToken()}
+                                <input type="hidden" name="token" value="${token.getToken()}">
+                                <input type="hidden" name="email" value="${token.getEmail()}">
+                                <select class="selectpicker pull-left lang-select" name="lang">
+                                    <option value="none" disabled>&{'Languages.title'}</option>
+                                    #{list items:controllers.WebController.getSupportedLanguages(), as:'supportedLang'}
+                                        %{
+                                            tokenLang = token.getDataValue(models.Constants.Token.DATA_LANG);
+                                            if (tokenLang != null) {
+                                                selectedLang = supportedLang.equals(tokenLang.getAsString());
+                                            } else {
+                                                selectedLang = false;
+                                            }
+                                        }%
+                                        <option value="${supportedLang}" #{if selectedLang == true} selected="selected" #{/if}>&{'Languages.' + supportedLang}</option>
+                                    #{/list}
+                                </select>
+                                <button type="submit" class="btn-bezel primary"><i class="material-icons">refresh</i></button>
+                                <a class="btn-bezel danger" data-toggle="modal" href="#${token.getToken()}RemoveModal" title="&{'Users.index.table.actions.deleteUser'}"><i class="material-icons">clear</i></a>
+                            #{/form}
+                        </td>
+                    </tr>
+                    <!-- BEGIN REMOVE  MODAL -->
+                    <div class="modal fade" id="${token.getToken()}RemoveModal" tabindex="-1" aria-hidden="false">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h3 class="modal-title">&{'Invitations.index.modal.title'}</h3>
+                                </div>
+                                <div class="modal-body text-center">
+                                    #{form @Admin.deleteInvitationToken()}
+                                        <h5 class="overflow-hidden">&{'Invitations.index.modal.description'} <em>"${token.getEmail()}"</em>?</h5>
+                                        <input type="hidden" name="token" value="${token.getToken()}">
+                                        <button type="submit" class="submit">&{'Invitations.index.modal.deleteConfirm'}</button>
+                                    #{/form}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                #{/list}
+            </tbody>
+        </table>
+    </div>
+</div>

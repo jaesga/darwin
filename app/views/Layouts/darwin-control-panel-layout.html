@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=${_response_encoding}"/>
+    <meta name="MobileOptimized" content="320">
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/plugins/bootstrap/css/bootstrap.min.css'}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/plugins/font-awesome/css/font-awesome.min.css'}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/plugins/bootstrap-select/dist/css/bootstrap-select.css'}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/font.css'}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/darwin-control-panel.css'}" />
+    <link rel="shortcut icon" type="image/png" href="/public/images/favicon.ico">
+    #{get 'moreStyles'/}
+</head>
+<body class="control-panel">
+
+#{include 'Layouts/darwin-control-panel-header.html' /}
+
+<div class="control-panel-content">
+    #{include 'Menu/layout.html' /}
+    <div class="control-panel-page">
+        <div class="container-fluid">
+            #{doLayout /}
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="@{'/public/javascripts/jquery-1.11.2.min.js'}"></script>
+<script type="text/javascript" src="@{'/public/plugins/bootstrap/js/bootstrap.min.js'}"></script>
+<script type="text/javascript" src="@{'/public/plugins/bootstrap-select/js/bootstrap-select.js'}"></script>
+<script type="text/javascript" src="@{'/public/javascripts/input-loading.js'}"></script>
+<script type="text/javascript" src="@{'/public/javascripts/js.cookie.js'}"></script>
+<script type="text/javascript" src="@{'/public/javascripts/latch-alert.js'}"></script>
+
+#{changelog.alert /}
+
+
+#{get 'moreScripts'/}
+</body>
+</html>

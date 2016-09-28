@@ -1,0 +1,290 @@
+##### Secure #####
+secure.title=
+secure.username=Username:
+secure.password=Password:
+secure.remember=Remember me
+secure.signin=Sign in
+secure.error=Oops, unknown username or password.
+secure.logout=You have been logged out.
+
+##### Language #####
+Languages.title=Language
+Languages.es=Spanish
+Languages.en=English
+
+##### Nav #####
+Nav.admin=Admin
+Nav.admin.invitations=Invite user
+Nav.admin.roles=Roles
+Nav.admin.changelog=Changelog
+Nav.users=Users
+Nav.apiClients=API Clients
+Nav.logout=Logout
+
+##### Login #####
+Public.login.title=Login to your account
+Public.login.email=Email
+Public.login.password=Password
+Public.login.rememberMe=Remember me
+Public.login.signIn=Login
+Public.login.forgot.title=Forgot your password?
+Public.login.forgot.description1=No worries, click
+Public.login.forgot.description2=to reset your password.
+Public.login.forgot.link=here
+Public.login.create.description=Don't have an account yet?
+Public.login.create.link=Create an account
+
+
+##### Reset password #####
+Public.requestPasswordReset.title=Reset your password
+Public.requestPasswordReset.instructions=Enter your email address to reset your password.
+Public.processRequestPasswordReset.signOut=To make sure that your account is secure, whenever you reset your password we’ll sign you out of your devices. You can sign back in with your new password.
+Public.processRequestPasswordReset.button=Reset
+Public.processRequestPasswordReset.email=Email
+Public.processRequestPasswordReset.validation.enterAccount=Please enter the account you want to reset the password for
+Public.processRequestPasswordReset.validation.invalidFormat=Invalid email format
+Public.processRequestPasswordReset.title=Reset Password
+Public.processRequestPasswordReset.instructions=Instructions for changing your password have been sent to %s. You can now close this page.
+Public.processRequestPasswordReset.back=Back to
+Public.processRequestPasswordReset.link=home page
+
+Public.passwordReset.title=Reset your password
+Public.passwordReset.description=Enter the following data to reset your password.
+Public.passwordReset.button=Change password
+Public.passwordReset.validation.enterEmailToken=Please enter the code you received via email.
+Public.passwordReset.validation.expiredToken=Code not found or expired.
+Public.passwordReset.validation.invalidOldPassword=Invalid password.
+Public.passwordReset.validation.passwordUsedInThePast=Invalid password, the new password can not match the last %s used.
+Public.passwordReset.ok=Your password has been successfully changed.
+
+##### Activate Account #####
+Public.activate.title=Account activation
+Public.activate.instructions1=A confirmation email has been sent to your email.
+Public.activate.instructions2=Please enter the validation code that you received in your email. This code is only valid for 24h.
+Public.activate.button=Activate account
+Public.activate.note=If you didn´t receive the confirmation email, it might have been sent to your Spam folder. Please make sure you used the right email address and try to register again.
+Public.activate.validation.invalidToken=Invalid activation code
+Public.activate.activeAccount=Great, your account is now activated. You can
+Public.activate.activeAccount.link=login now
+Public.activate.yourEmail=your email
+
+Public.activate.adminActivationUser=Great, your account was created successfully but and administrator should activate it first. You will receive an email when this happens.
+
+##### Contact #####
+Contact.contactUs.title=Contact us
+Contact.contactUs.name=Name
+Contact.contactUs.email=Email
+Contact.contactUs.message=Message
+Contact.contactUs.send=Send
+Contact.subject.placeholder=Select your question category
+Contact.errors.invalid.name=Invalid name
+Contact.errors.invalid.subject=Invalid subject
+Contact.errors.invalid.email=Invalid email
+Contact.errors.invalid.message=Invalid message
+Contact.contactUs.success=Your email was successfully send
+
+##### Invite User #####
+Invitations.index.title=Invite User
+Invitations.index.pending=Pending invitations
+Invitations.index.table.email=Email
+Invitations.index.table.state=State
+Invitations.index.table.actions=Actions
+Invitations.index.table.state.valid=Valid
+Invitations.index.table.state.invalid=Invalid
+Invitations.index.modal.title=Delete Invitation
+Invitations.index.modal.description=Are you sure you want to remove the invitation for
+Invitations.index.modal.deleteConfirm=Yes, delete the invitation
+
+##### Register #####
+Public.register.title=Register
+Public.register.name=Name
+Public.register.email=Email
+Public.register.oldPassword=Old password
+Public.register.password=New password (min. %s chars)
+Public.register.passwordCheck=Confirm new password
+Public.register.registerButton=Sign up
+Public.register.validation.name=Please enter a display name we can use to address you
+Public.register.validation.email=An email is required to activate your account
+Public.register.validation.invalidFormat=Invalid email format
+Public.register.validation.password=Please enter a password
+Public.register.validation.passwordConfirmation=Please confirm your password
+Public.register.validation.passwordPolicy=The password must at least of 8 characters
+Public.register.validation.passwordMismatch=Your passwords do not match
+Public.register.validation.existingAccount=This account is already registered. Forgot your password?
+
+##### APIClients #####
+APIClients.index.newAPIClient.title=Create New API Client
+APIClients.index.newAPIClient.name=Name
+APIClients.index.newAPIClient.submit=Create
+
+APIClients.index.APIClientList.title=API Clients List
+APIClients.index.APIClientList.name=Name
+APIClients.index.APIClientList.credentials=Credentials
+APIClients.index.APIClientList.actions=Actions
+APIClients.index.APIClientList.clientId=Client ID:
+APIClients.index.APIClientList.secret=Secret:
+APIClients.index.APIClientList.delete=Delete API Client
+APIClients.index.APIClientList.renewSecret=Renew secret
+
+APIClients.index.modal.deleteAPIClient=Delete API Client
+APIClients.index.modal.deleteButton=Delete API Client
+APIClients.index.modal.deleteConfirm=Yes, delete the API Client
+APIClients.index.modal.deleteConfirmation=Are you sure you want to remove the API Client
+
+APIClients.index.modal.renewAPIClient=Renew API Client Secret
+APIClients.index.modal.renewButton=Renew API Client Secret
+APIClients.index.modal.renewConfirm=Yes, renew the API Client Secret
+APIClients.index.modal.renewConfirmation=Are you sure you want to renew the API Client Secret
+
+##### Users #####
+Users.index.activeList.title=Users List
+Users.index.deactivateList.title=Users with activation pending
+Users.index.table.name=Name
+Users.index.table.email=Email
+Users.index.table.role=Role
+Users.index.table.active=Active
+Users.index.table.actions=Actions
+Users.index.table.actions.deactivateUser=Deactivate user
+Users.index.table.actions.deleteUser=Delete user
+Users.index.table.actions.activateUser=Activate user
+Users.index.table.profile=Profile
+
+Users.index..modal.deleteUser=Delete user
+Users.index..modal.deleteButton=Delete uSer
+Users.index..modal.deleteConfirm=Yes, delete the user
+Users.index..modal.deleteConfirmation=Are you sure you want to remove the user
+
+##### Profile #####
+Profile=Profile
+Profile.name=Name
+Profile.email=Email
+Profile.created=Sign up since
+Profile.preferredLang=Preferred language
+Profile.lastPasswordChange=Last password change
+Profile.deleteAccount=Delete Account
+Profile.deleteAccount.message=Are you sure to delete your account? This action can not be undone.
+Profile.deleteAccount.confirm=Yes, delete account
+Profile.latchAlias=Latch alias
+
+##### Roles #####
+Roles.index.list.title=Roles List
+Roles.index.create.button=Create role
+Roles.index.new.button=New Role
+Roles.index.form.name=Role name
+Roles.index.modal.deleteRole=Delete Role
+Roles.index.modal.deleteConfirmation=Are you sure you want to remove the Role
+Roles.index.modal.deleteConfirm=Yes, delete the Role
+Roles.validation.forbiddenEditAdminRole=%s role can not be edited or deleted
+Roles.validation.name.invalidOrEmpty=Invalid or empty name
+Roles.validation.name.permissions=Permissions are required
+
+##### Changelog #####
+changelog.adminIndex=Changelog
+changelog.adminIndex.add=Add
+changelog.adminIndex.version=Version
+changelog.adminIndex.title=Title (%s)
+changelog.adminIndex.content=Content (%s)
+changelog.userIndex=Changelog setup
+changelog.noLog=There aren't new notes about the actual version
+changelog.setup=Changelog setup
+changelog.setup.message=Ignore future version changelog messages
+changelog.version=Version %s changelog
+changelog.description=The next changes has been introduced in this new version:
+changelog.link=A more detailed explanation of this changes can be found <a href="%s"> here</a>.
+changelog.ignore=Don't show me future version changelog messages
+changelog.remove.title=Remove the entry
+changelog.remove=Do you want to remove the entry?
+changelog.remove.confirm=Yes, remove the entry
+changelog.close=Close
+
+##### Latch #####
+latch.pair.title=Latch your account
+latch.pair.placeholder=Place your token here
+latch.pair.pairAccount=Pair with Latch
+latch.pair.badToken=This token is not valid or has expired. Try it again.
+latch.pair.pairInfo=Protect your account with Latch. Introduce here your pairing code.
+latch.validation.token=You should introduce a pairing code.
+latch.validation.nocfg=Application ID and Secret are not properly set.
+latch.unpair.unpairAccount=Unpair your account
+latch.pair.successful=User has been successfully paired.
+latch.unpair.successful=User has been successfully unpaired.
+latch.otp.placeholder=Place your one-time password here
+latch.otp.attempts=The OTP has been invalidated
+latch.otp.title=One time Password
+latch.otp.wrong=One-time password not valid.
+
+latch.pair.info=What is Latch?
+latch.pair.info.description.one=An app for a mobile device designed to protect your online accounts and services when you are not connected 100
+latch.pair.info.description.one.free=free.
+latch.pair.info.description.two=with your email and  associate the accounts for your services with Latch, As simple as close the latch!
+latch.pair.info.description.register=Sign up
+latch.pair.info.description.three=If you don't know how it works Latch, find out  more
+latch.pair.info.description.how= here!
+latch.pair.info.note=For security reasons you can not leave this page until you pair your account with Latch
+latch.pair.modal.title=Protect yourself with Latch
+latch.pair.modal.info=Latch gives you the control to "turn off" your online accounts and services when you are not connected. Latch your accounts so no one but you can access them!
+latch.pair.modal.check=I don't want to protect my account with Latch.
+latch.pair.modal.ok=I want to protect my account with Latch.
+latch.pair.modal.back=Back
+latch.pair.token.info=Do you already know how to pair?
+latch.pair.token.info.description=Pairing Latch with your account is very easy. Open the Latch app on your mobile device and, on the 'Add a new service' screen, press 'Generate new code'. Then, enter it here:
+
+latch.locked.operation=This operation is locked.
+
+#### Mobile Connect #####
+Public.login.mobileConnect=Login with Mobile Connect
+mobileConnect.error.userCancel=Has cancelado el inicio de sesión
+mobileConnect.error.default=Se ha producido un error, inténtelo de nuevo
+mobileConnect.pair.title=Pair with Mobile Connect
+mobileConnect.unpair.title=Unpair your account
+mobileConnect.pair.pairAccount=Pair account
+mobileConnect.unpair.unpairAccount=Unpair
+mobileConnect.unpair.successful=User has been successfully unpaired.
+mobileConnect.pair.successful=User has been successfully paired.
+
+mobileConnect.pair.info=What is Mobile Connect?
+mobileConnect.pair.info.description.one=Mobile Connect is a new service that allows people to identify and authenticate using their mobile phone. No user names and no passwords. It’s easier, more secure and is now available through Mobile Network Operators worldwide.
+mobileConnect.pair.info.description.two=If you don't know how it works Mobile Connect, find out  more
+mobileConnect.pair.info.description.link=here
+mobileConnect.pair.info.description.three=You just have to press the button to pair, enter your mobile number and follow the prompts.
+
+mobileConnect.accounts.title=Select your account
+
+##### Mailer Subjects #####
+Mailer.subject.passwordReset=Reset your password
+Mailer.subject.unregister=Confirm your account deletion
+Mailer.subject.activation=Your account has been activated
+Mailer.subject.invitation=Invitation to ElevenPaths
+Mailer.subject.contactUs=Contact us
+
+##### Validation messages #####
+validation.apiClient.name.invalidOrEmpty=Invalid or empty name
+validation.apiClient.name.apiClientAlreadyExists=There is a client already with that name.
+
+validation.passwordMismatch=Your passwords do not match
+validation.userName=Please enter a display name we can use to address you
+validation.email=An email is required to activate your account
+validation.password=Please enter a password
+validation.passwordConfirmation=Please confirm your password
+validation.email.invalidFormat=Invalid email format
+validation.email.invalidLanguage=Invalid selected language
+validation.name.invalidOrEmpty=Invalid or empty name
+validation.host.empty=Host is empty
+validation.existingAccount=This account is already registered. Forgot your password?
+validation.passwordReset.enterEmailToken=Please enter the token sent in the email
+validation.passwordReset.newPassword=Please enter the new password
+validation.passwordReset.enterAccount=Please enter the email
+validation.expiredToken=This token is not valid or has expired. Try it again.
+
+validation.passwordPolicy.username=The password cannot contain the user email.
+validation.passwordPolicy.1=The password must at least of 8 characters
+validation.passwordPolicy.2=The password must at least of one lowercase character, one uppercase character, one digit and one special symbols in the list (&!"#'()*+,-./:;<=>?@[]^{|})
+validation.passwordPolicy=Invalid password. &{%2$s}.
+
+
+##### Finder Fields #####
+finder.name=Name
+finder.email=Email
+finder.all=All
+finder.active=Active
+finder.inactive=Inactive

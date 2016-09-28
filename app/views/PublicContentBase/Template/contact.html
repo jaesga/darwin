@@ -1,0 +1,43 @@
+#{stylesheet 'basic.css' /}
+#{form @PublicContentBase.contactProcess(), method: 'POST'}
+<h2 class="justify_left" xmlns="http://www.w3.org/1999/html">&{'Contact.contactUs.title'}</h2>
+    #{ifErrors}
+        <div class="error">
+            ${errors[0]}
+        </div>
+    #{/ifErrors}
+    #{if flash.contactUsSend}
+        <div class="success">&{'Contact.contactUs.success'}</div>
+    #{/if}
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-user"></i> <input class="form-control placeholder-no-fix" type="text" placeholder="&{'Contact.contactUs.name'}" name="name" id="name" value="${flash.name}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i> <input class="form-control placeholder-no-fix" type="text" placeholder="&{'Contact.contactUs.email'}" name="email" id="email" value="${flash.email}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-info"></i>
+            #{subjects name: 'subject', id: 'subject', selected: flash.subject /}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-pencil"></i>
+            <textarea rows="3" class="form-control placeholder-no-fix no-resize-all" placeholder="&{'Contact.contactUs.message'}..." name="message" id="message">${flash.message}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-actions">
+                <button type="submit" class="btn-bezel btn-primary pull-right">
+                    &{'Contact.contactUs.send'}
+                </button>
+            </div>
+        </div>
+    </div>
+#{/form}

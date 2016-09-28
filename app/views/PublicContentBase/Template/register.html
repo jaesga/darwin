@@ -1,0 +1,53 @@
+#{stylesheet 'basic.css' /}
+#{form @processRegister()}
+    <h2 class="text-left">&{'Public.register.title'}</h2>
+
+    #{ifErrors}
+        <div class="error">
+            ${errors[0]}
+        </div>
+    #{/ifErrors}
+
+    #{if models.user.ActivationType.INVITATION.equals(models.Config.getUserActivationType()) }
+        <div class="form-group">
+            <div class="input-icon">
+                <i class="fa fa-ticket"></i>
+                <input class="form-control" type="text" autocomplete="off" name="token" id="token" value="${token}" placeholder="Token" />
+            </div>
+        </div>
+    #{/if}
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-user"></i>
+            <input class="form-control" type="text" value="${flash.name}" placeholder="&{'Public.register.name'}" id="name" name="name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control" type="text" value="${email}" placeholder="&{'Public.register.email'}" id="email" name="email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control" type="password" autocomplete="off" name="password" id="password" value="" placeholder="&{'Public.register.password', models.Constants.User.MIN_PASSWORD_LENGTH}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control" type="password" autocomplete="off" name="passwordCheck" id="passwordCheck" value="" placeholder="&{'Public.register.passwordCheck'}" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-actions">
+                <button type="submit" class="btn-bezel btn-primary pull-right">
+                    &{'Public.register.registerButton'} <i class="material-icons">forward</i>
+                </button>
+            </div>
+        </div>
+    </div>
+#{/form}

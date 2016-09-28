@@ -1,0 +1,39 @@
+#{stylesheet 'basic.css' /}
+<h2 class="text-left">&{'Public.activate.title'}</h2>
+<p>&{'Public.activate.instructions1'}</p>
+<p>&{'Public.activate.instructions2'}</p>
+#{form @activate(), method:'POST'}
+    #{if (flash.get("invalidActivationToken"))}
+        <div class="error">
+            &{'Public.activate.validation.invalidToken'}
+        </div>
+    #{/if}
+    #{if (flash.get("successActiveAccount"))}
+    <div class="text-success">
+        &{'Public.activate.activeAccount'} <a href="@{Secure.login}">&{'Public.activate.activeAccount.link'}</a>
+    </div>
+    #{/if}
+    <div class="form-group">
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control" type="text" autocomplete="off" placeholder="Activation code"
+            name="token" id="token" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-actions">
+                <button type="submit" class="btn-bezel btn-primary pull-right">
+                    &{'Public.activate.button'} <i class="material-icons">forward</i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <em style="font-size: 10px">
+                &{'Public.activate.note'}
+            </em>
+        </div>
+    </div>
+#{/form}

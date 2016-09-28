@@ -1,0 +1,11 @@
+#{extends 'DarwinMailer/mailLayout.html' /}
+#{set 'subject'}Activate account#{/set}
+
+<h3>Dear ${user.getName()},</h3>
+<p>To proceed with the account activation of your ${appName} account, click on the link below. The link will be valid for 24h.</p>
+<a href="${baseUrl}/activate/${token}" target="_blank" style="text-align:center;">Click here to activate your account</a></p>
+<p>If you have problems following that link, just go to <a href="${baseUrl}/activate">${baseUrl}/activate</a> and type in your activation code:</p>
+<p>${token}</p>
+<p>Regards.<br/>The ${appName} team</p>
+
+

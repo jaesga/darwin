@@ -1,0 +1,15 @@
+<div class="btn-group">
+    <a class="btn-lang" data-toggle="dropdown" aria-expanded="false">
+        &{'Languages.title'} <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        #{list items:controllers.WebController.getSupportedLanguages(), as:'lang'}
+            <li>
+                <a href="#" onclick="$('#changeTo${lang}').submit(); return false;">&{'Languages.' + lang}</a>
+                #{form @WebController.setLanguage(), id: 'changeTo' + lang}
+                    <input type="hidden" name="language" value="${lang}">
+                #{/form}
+            </li>
+        #{/list}
+    </ul>
+</div>

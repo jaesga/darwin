@@ -1,0 +1,30 @@
+#{stylesheet 'basic.css' /}
+<h2 style="text-align:center;">&{'mobileConnect.accounts.title'}</h2>
+
+#{ifErrors}
+<div class="form-group has-error">
+    <label class="control-label"> &{errors[0]}</label>
+</div>
+#{/ifErrors}
+
+#{list items:users, as:'user'}
+    %{
+        formId = "form-" + user_index;
+    }%
+    #{form @Security.checkAccountChoices(), id: formId }
+
+        <div class="row account-row" onclick="document.forms['${formId}'].submit();">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="account pull-left">
+                    <h5>${user.getName()}</h5>
+                    <p>${user.getEmail()}</p>
+                </div>
+                <div class="arrow pull-right">
+                    <img src="@{'public/images/arrow_to_account.png'}" alt="Login"/>
+                </div>
+                <input class="form-control" type="hidden" value="${user.getEmail()}" name="username">
+            </div>
+        </div>
+    #{/form}
+
+#{/list}

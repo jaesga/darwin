@@ -1,0 +1,15 @@
+%{subjects = notifiers.ContactSubject.getSubjects()}%
+
+#{ifnot subjects.isEmpty()}
+    <select name="${_name}" id="${_id}" class="selectpicker">
+        <option data-hidden="true">&{'Contact.subject.placeholder'}</option>
+        #{list items: subjects, as : 'subject'}
+            #{if subject.getId().toString().equals(_selected)}
+                <option value="${subject.getId()}" selected>${subject.getMessage()}</option>
+            #{/if}
+            #{else}
+                <option value="${subject.getId()}">${subject.getMessage()}</option>
+            #{/else}
+        #{/list}
+    </select>
+#{/ifnot}
